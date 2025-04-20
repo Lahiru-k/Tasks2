@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Tasks</title>
+</head>
+<body>
+<h1>Tasks</h1>
+<table>
+    <thead>
+        <tr>
+            <td>Status</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+        <form th:action="@{/home}" method="post" th:object="${user}">
+            <tr th:each="task : ${user.tasks}">
+                <td th:text="${task.status}" th:field="${task.status}"></td>
+                <td th:text="${task.description}"></td>
+            </tr>
+        </form>
+    </tbody>
+</table>
+</body>
+</html>
