@@ -39,5 +39,9 @@ public class TaskService {
         }
     }
 
+    public void saveUserTasks(User user) {
+        taskRepository.saveAll(user.getTasks());
+    }
+
 }
 

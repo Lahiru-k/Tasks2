@@ -31,7 +31,9 @@ public class HomeController {
 
     @PostMapping
     public String postHome(@ModelAttribute User user, Model model) {
-        return null;
+        taskService.saveUserTasks(user);
+//        model.addAttribute("user", taskService.getUserTasks(userSession.getUserId()));
+        return "redirect:/home";
     }
 
 }

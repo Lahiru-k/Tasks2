@@ -11,6 +11,7 @@
         <thead>
         <tr>
             <td></td>
+            <td></td>
             <td>Status</td>
             <td>Description</td>
         </tr>
@@ -18,6 +19,7 @@
         <tbody>
         <tr th:each="task, counter : *{tasks}">
             <td><input type="hidden" name="taskId" th:field="*{tasks[__${counter.index}__].taskId}"></td>
+            <td><input type="hidden" name="userId" th:field="*{tasks[__${counter.index}__].userId}"></td>
             <td><input type="checkbox" name="status" th:field="*{tasks[__${counter.index}__].status}"></td>
             <td><input type="text" name="description" th:field="*{tasks[__${counter.index}__].description}"></td>
         </tr>
