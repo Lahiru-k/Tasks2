@@ -6,21 +6,24 @@
 </head>
 <body>
 <h1>Tasks</h1>
-<table>
-    <thead>
+<form th:action="@{/home}" method="post" th:object="${user}">
+    <table>
+        <thead>
         <tr>
+            <td></td>
             <td>Status</td>
             <td>Description</td>
         </tr>
-    </thead>
-    <tbody>
-        <form th:action="@{/home}" method="post" th:object="${user}">
-            <tr th:each="task : ${user.tasks}">
-                <td th:text="${task.status}" th:field="${task.status}"></td>
-                <td th:text="${task.description}"></td>
-            </tr>
-        </form>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <tr th:each="task, counter : *{tasks}">
+            <td><input type="hidden" name="taskId" th:field="*{tasks[__${counter.index}__].taskId}"></td>
+            <td><input type="checkbox" name="status" th:field="*{tasks[__${counter.index}__].status}"></td>
+            <td><input type="text" name="description" th:field="*{tasks[__${counter.index}__].description}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <input type="submit" value="Save">
+</form>
 </body>
 </html>

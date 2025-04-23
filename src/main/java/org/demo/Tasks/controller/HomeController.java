@@ -7,6 +7,8 @@ import org.demo.Tasks.service.UserSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Data
@@ -25,6 +27,11 @@ public class HomeController {
         }else {
             return "redirect:/login";
         }
+    }
+
+    @PostMapping
+    public String postHome(@ModelAttribute User user, Model model) {
+        return null;
     }
 
 }
