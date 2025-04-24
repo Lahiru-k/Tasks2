@@ -43,5 +43,13 @@ public class TaskService {
         taskRepository.saveAll(user.getTasks());
     }
 
+    public void saveTask(Task task) {
+        taskRepository.save(task);
+    }
+
+    public void addNewTask(Task task, Integer userId) {
+        taskRepository.addNewTask(userId, false, task.getDescription());
+    }
+
 }
 
